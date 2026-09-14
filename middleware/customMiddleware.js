@@ -5,9 +5,8 @@ const unknownEndpoint = (request, response) => {
 const errorHandler = (error, request, response, next) => {
   console.error(error.message);
 
-  response.status(500);
-  response.json({
-    message: error.message,
+  response.status(500).json({
+    message: "Something went wrong!"
   });
 };
 

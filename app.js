@@ -1,10 +1,11 @@
 require('dotenv').config();
+const connectDB = require("./config/db");
 const express = require("express");
 const app = express();
 const tourRouter = require("./routes/tourRouter");
 const userRouter = require("./routes/userRouter");
 const { unknownEndpoint } = require("./middleware/customMiddleware");
-
+connectDB();
 const morgan = require("morgan");
 app.use(morgan("dev"));
 
@@ -30,4 +31,4 @@ const port = process.env.PORT || 4000;
 app.listen(port, () => {
   console.log(`Server is running on http://localhost:${port}`);
 });
- 
+
